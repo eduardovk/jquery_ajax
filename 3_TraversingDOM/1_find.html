@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    .creature {
+        margin: 20px;
+        background-color: #FFE1FF;
+        border: 1px solid #8B7B8B;
+    }
+
+    .terrain {
+        margin: 20px;
+        background-color: green;
+        border: 1px solid #8B7B8B;
+    }
+
+    .borda{
+        border: 2px solid red;
+    }
+
+    .borda-azul{
+        border: 2px solid blue;
+    }
+    </style>
+</head>
+<body>
+
+    <p> <span style="color:grey;">//Adicionando borda vermelha aos elementos de classe creature em Mammals</span><br>
+        <span style="color:grey;">//Utilizando css selector</span><br>
+        <pre>
+var result = $('#mammals .creature');
+result.each(function(){
+    $(this).addClass('borda');
+});
+        </pre>
+    </p>
+
+    <p> <span style="color:grey;">//Adicionando borda azul aos elementos de classe creature em Reptiles</span><br>
+        <span style="color:grey;">//Utilizando método JQuery find()</span><br>
+        <pre>
+var result = $('#reptiles').find('.creature');
+result.each(function(){
+    $(this).addClass('borda-azul');
+});
+        </pre>
+    </p>
+
+    <div id="animals" class="creature">Animals
+        <div class="creature" id="mammals">Mammals
+            <div class="creature">Dogs</div>
+            <div class="creature">Cats</div>
+            <div class="terrain">Forest</div>
+            <div class="terrain">Prairie</div>
+        </div>
+        <div class="creature" id="reptiles">Reptiles
+            <div class="creature">Snake</div>
+            <div class="creature">Lizard</div>
+            <div class="terrain">Jungle</div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var result = $('#mammals .creature');
+        result.each(function(){
+            $(this).addClass('borda');
+        });
+
+        var result = $('#reptiles').find('.creature');
+        result.each(function(){
+            $(this).addClass('borda-azul');
+        });
+    });
+    </script>
+
+</body>
+</html>
