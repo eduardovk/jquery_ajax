@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            .amarelo{
+                background-color: yellow;
+            }
+
+            .borda{
+                border: 2px solid red;
+            }
+
+            .borda-azul{
+                border: 2px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <p><span style="color:grey">//Adicionando fundo amarelo a inputs com atributo 'required'</span><br>
+            $('input[required]').addClass('amarelo');</p>
+
+        <p><span style="color:grey">//Adicionando borda vermelha a inputs cujo placeholder seja igual a 'CPF'</span><br>
+            $('input[placeholder=CPF]').addClass('borda');</p>
+
+        <p><span style="color:grey">//Adicionando borda azul a inputs cujo placeholder contenha palavra 'Endereço'</span><br>
+            $('input[placeholder*=Endereço]').addClass('borda-azul');</p>
+
+        Nome:* <input type="text" placeholder="Nome" required><br>
+        Sobrenome: <input type="text" placeholder="Sobrenome"><br>
+        CPF: <input type="text" placeholder="CPF"><br>
+        Endereço Residencial: <input type="text" placeholder="Endereço Residencial"><br>
+        Endereço Comercial: <input type="text" placeholder="Endereço Comercial"><br>
+        E-Mail:* <input type="text" placeholder="E-mail" required><br>
+        Senha:* <input type="text" placeholder="Senha" required>
+
+        <script src="../js/jquery-3.4.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('input[required]').addClass('amarelo');
+                $('input[placeholder=CPF]').addClass('borda');
+                $('input[placeholder*=Endereço]').addClass('borda-azul');
+            });
+        </script>
+
+    </body>
+</html>

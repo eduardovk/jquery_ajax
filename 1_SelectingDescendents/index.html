@@ -11,9 +11,12 @@
 </head>
 <body>
 
-    <p>$('#lista1 li').addClass('vermelho');</p>
 
-    <p>$('#lista2 > li').addClass('vermelho');</p>
+    <p><span style="color:grey">//Todos descendentes li de lista1</span><br>
+        $('#lista1 li').addClass('vermelho');</p>
+
+    <p><span style="color:grey">//Apenas descendentes diretos li de lista2</span><br>
+        $('#lista2 > li').addClass('vermelho');</p>
 
     <h3>Lista 1</h3>
     <ul id="lista1">
