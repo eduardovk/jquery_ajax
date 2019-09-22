@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .vermelho{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <p>$('#lista1 li').addClass('vermelho');</p>
+
+    <p>$('#lista2 > li').addClass('vermelho');</p>
+
+    <h3>Lista 1</h3>
+    <ul id="lista1">
+        <li>LALALALALALALALALALALAL</li>
+        <li>LALALALALALALALALALALAL</li>
+        <li>LALALALALALALALALALALAL</li>
+        <li>LALALALALALALALALALALAL</li>
+        <div>
+            <ul>
+                <li>LOLOLOLOLO</li>
+                <li>LOLOLOLOLO</li>
+                <li>LOLOLOLOLO</li>
+            </ul>
+        </div>
+        <li>LALALALALALALALALALALAL</li>
+    </ul>
+    <br>
+    <h3>Lista 2</h3>
+    <ul id="lista2">
+        <li>LALALALALALALALALALALAL</li>
+        <li>LALALALALALALALALALALAL</li>
+        <li>LALALALALALALALALALALAL</li>
+        <li>LALALALALALALALALALALAL</li>
+        <div>
+            <ul>
+                <li>LOLOLOLOLO</li>
+                <li>LOLOLOLOLO</li>
+                <li>LOLOLOLOLO</li>
+            </ul>
+        </div>
+        <li>LALALALALALALALALALALAL</li>
+    </ul>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#lista1 li').addClass('vermelho');
+            $('#lista2 > li').addClass('vermelho');
+        });
+    </script>
+</body>
+</html>
