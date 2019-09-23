@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+        	background-color: #8dd;
+        	height: 100px;
+        	padding: 20px;
+        	margin: 50px 20px;
+        }
+
+        #resultado{
+        	vertical-align: center;
+        	line-height: 100px;
+        	text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span style="color:grey;">//Busca arquivo 1_result.html via ajax através do método ajax()<br>
+            //e exibe conteúdo quando finalizada requisição (método done())
+            <pre>
+$('#caixa').on('click', function(){
+    $.ajax('1_result.html').done(function(response){
+        $('#resultado').html(response);
+    });
+});
+            </pre>
+        </span>
+
+    </p>
+
+    <div class="box " id="caixa">
+        CLICK HERE
+    </div>
+
+    <div class="box " id="resultado">
+
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#caixa').on('click', function(){
+                $.ajax('1_result.html').done(function(response){
+                    $('#resultado').html(response);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
