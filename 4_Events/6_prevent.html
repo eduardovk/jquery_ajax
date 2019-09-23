@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+        	background-color: #8dd;
+        	height: 100px;
+        	padding: 20px;
+        	margin: 50px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span style="color:grey;">//Cancelando o comportamento padrão (redirecionar) ao clicar em um link<br>
+            //utilizando parametro e na function() do evento click e usando e.preventDefault()
+            //e.stopPropagation() para evitar que o alerta seja exibido quando clicar apenas na div
+            <pre>
+$('#caixa').on('click','a',function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    alert('Evento de redirecionamento de pagina cancelado');
+});
+
+$('#caixa').on('click', function(e){
+    alert('Clicou na caixa!');
+});
+            </pre>
+        </span>
+    </p>
+
+    <div class="box " id="caixa">
+        <a href="https://www.udemy.com/">LINK</a>
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#caixa').on('click','a',function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                alert('Evento de redirecionamento de pagina cancelado');
+            });
+
+            $('#caixa').on('click', function(e){
+                alert('Clicou na caixa!');
+            });
+
+        });
+    </script>
+</body>
+</html>
