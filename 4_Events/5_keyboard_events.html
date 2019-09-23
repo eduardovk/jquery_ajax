@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+        	background-color: #8dd;
+        	height: 100px;
+        	padding: 20px;
+        	margin: 50px 20px;
+        }
+
+        #resultado{
+        	vertical-align: center;
+        	line-height: 100px;
+        	text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span style="color:grey;">//Captando keyup de input e exibindo texto digitado
+            <pre>
+$('#caixa').on('keyup','input',function(){
+    var nome = $(this).val();
+    $('#resultado').html('Your name is: ' + nome);
+});
+            </pre>
+        </span>
+    </p>
+
+    <div class="box " id="caixa">
+        <input type="text" id="nome" placeholder="Nome">
+    </div>
+
+    <div class="box " id="resultado">
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#caixa').on('keyup','input',function(){
+                var nome = $(this).val();
+                $('#resultado').html('Your name is: ' + nome);
+            });
+        });
+    </script>
+</body>
+</html>
