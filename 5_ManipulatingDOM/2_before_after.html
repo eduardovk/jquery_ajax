@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="1_append_prepend.css">
+</head>
+<body>
+
+    <p>
+        <span style="color:white;">//Utilizando Before (para anexar antes do elmento) e After (para anexar após elmento)<br>
+            //o texto digitado no input à div places-container
+            <pre>
+$('#add-container').on('click','button',function(){
+    var texto = $('#add-container input').val();
+    var html = `&lt;div class="item"&gt;
+        &lt;div class="remove"&gt;X&lt;/div&gt;
+        `+texto+`
+    &lt;/div&gt;`;
+    if($(this).attr('class') == 'before'){
+        $('#places-container').children().first().before(html)
+    }else{
+        $('#places-container').children().last().after(html);
+    }
+});
+            </pre>
+        </span>
+    </p>
+
+    <div id="add-container">
+        <input type="text" />
+        <button class="before">Before First</button>
+        <button class="after">After Last</button>
+    </div>
+
+    <div id="places-container">
+        <div class="item">
+            <div class="remove">X</div>
+            Paris
+        </div>
+        <div class="item">
+            <div class="remove">X</div>
+            Brisbane
+        </div>
+        <div class="item">
+            <div class="remove">X</div>
+            Lima
+        </div>
+        <div class="item">
+            <div class="remove">X</div>
+            Nairobi
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#add-container').on('click','button',function(){
+                var texto = $('#add-container input').val();
+                var html = `<div class="item">
+                    <div class="remove">X</div>
+                    `+texto+`
+                </div>`;
+                if($(this).attr('class') == 'before'){
+                    $('#places-container').children().first().before(html)
+                }else{
+                    $('#places-container').children().last().after(html);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
