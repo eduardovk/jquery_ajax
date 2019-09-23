@@ -1,0 +1,101 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+            background-color: #8dd;
+            height: auto;
+            padding: 20px;
+            margin: 50px 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span style="color:grey;">//Exemplos de toggle(), fadeToggle() e slideToggle()<br>
+             //com parametro de duração da animação e função anonima na conclusão</span>
+        <pre>
+$('.box').on('click', 'button', function(){
+    var classe = $(this).attr('class');
+    var texto = $(this).closest('#caixa').find('.more');
+    if(classe === "toggle"){
+        texto.toggle(500, function(){alert('Animação concluída.')});
+    }else if(classe === "fade"){
+        texto.fadeToggle(500, function(){alert('Animação concluída.')});
+    }else{
+        texto.slideToggle(500, function(){alert('Animação concluída.')});
+    }
+});
+        </pre>
+
+    </p>
+
+    <div class="box " id="caixa">
+        <h2>toggle()</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum finibus erat sit amet euismod.
+            Maecenas suscipit venenatis felis cursus dapibus. Vivamus fringilla turpis ut semper volutpat.
+            Suspendisse sollicitudin consectetur urna, in pharetra erat lacinia id.
+            Sed tristique neque non orci ultricies, nec varius eros malesuada.
+        </p>
+        <p class="more" style="display:none;">
+            Phasellus hendrerit sem et leo interdum, sed cursus enim lacinia.
+            Sed at odio volutpat, ultrices nibh et, laoreet elit. Etiam viverra eget nulla tempor hendrerit.
+            Vestibulum eget rutrum tortor, eu blandit augue. Vivamus scelerisque ligula vel tortor maximus pretium.
+        </p>
+        <button type="button" id="botao" class="toggle">Show more</button>
+    </div>
+    <div class="box " id="caixa">
+        <h2>fadeToggle()</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum finibus erat sit amet euismod.
+            Maecenas suscipit venenatis felis cursus dapibus. Vivamus fringilla turpis ut semper volutpat.
+            Suspendisse sollicitudin consectetur urna, in pharetra erat lacinia id.
+            Sed tristique neque non orci ultricies, nec varius eros malesuada.
+        </p>
+        <p class="more" style="display:none;">
+            Phasellus hendrerit sem et leo interdum, sed cursus enim lacinia.
+            Sed at odio volutpat, ultrices nibh et, laoreet elit. Etiam viverra eget nulla tempor hendrerit.
+            Vestibulum eget rutrum tortor, eu blandit augue. Vivamus scelerisque ligula vel tortor maximus pretium.
+        </p>
+        <button type="button" id="botao" class="fade">Show more</button>
+    </div>
+    <div class="box " id="caixa">
+        <h2>slideToggle()</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum finibus erat sit amet euismod.
+            Maecenas suscipit venenatis felis cursus dapibus. Vivamus fringilla turpis ut semper volutpat.
+            Suspendisse sollicitudin consectetur urna, in pharetra erat lacinia id.
+            Sed tristique neque non orci ultricies, nec varius eros malesuada.
+        </p>
+        <p class="more" style="display:none;">
+            Phasellus hendrerit sem et leo interdum, sed cursus enim lacinia.
+            Sed at odio volutpat, ultrices nibh et, laoreet elit. Etiam viverra eget nulla tempor hendrerit.
+            Vestibulum eget rutrum tortor, eu blandit augue. Vivamus scelerisque ligula vel tortor maximus pretium.
+        </p>
+        <button type="button" id="botao" class="slide">Show more</button>
+    </div>
+
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.box').on('click', 'button', function(){
+                var classe = $(this).attr('class');
+                var texto = $(this).closest('#caixa').find('.more');
+                if(classe === "toggle"){
+                    texto.toggle(500, function(){alert('Animação concluída.')});
+                }else if(classe === "fade"){
+                    texto.fadeToggle(500, function(){alert('Animação concluída.')});
+                }else{
+                    texto.slideToggle(500, function(){alert('Animação concluída.')});
+                }
+            });
+        });
+    </script>
+</body>
+</html>
