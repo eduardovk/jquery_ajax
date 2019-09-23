@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    .box{
+        width: 150px;
+        height: 150px;
+        color: white;
+        text-align: center;
+        background-color: blue;
+    }
+
+    .vermelho{
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+
+    <p> <span style="color:grey;">//Toggle de classe utilizando listener de evento click</span>
+        <pre>
+$('#caixa').on('click', function(){
+    $(this).toggleClass('vermelho');
+} );
+        </pre>
+    </p>
+
+    <div class="box " id="caixa">
+        <p>Click me!</p>
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#caixa').on('click', function(){
+            $(this).toggleClass('vermelho');
+        } );
+    });
+    </script>
+</body>
+</html>
