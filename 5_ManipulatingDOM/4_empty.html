@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+        	background-color: #8dd;
+        	height: 100px;
+        	padding: 20px;
+        	margin: 50px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span style="color:grey;">//Diferença entre text() e html()<br></span>
+        <pre>
+$('#p1').text('&lt;strong&gt;This is p1&lt;/strong&gt;');
+$('#p2').html('&lt;strong&gt;This is p2&lt;/strong&gt;');
+        </pre>
+        <span style="color:grey;">//Criando novo atributo para p3<br></span>
+        <pre>
+$('#p3').attr('novo-atributo', 123);
+        </pre>
+        <span style="color:grey;">//Método empty() para esvaziar conteúdo da caixa<br></span>
+        <pre>
+$('#esvaziar').on('click', function(){
+    $('#caixa').empty();
+});
+        </pre>
+    </p>
+
+    <div class="box " id="caixa">
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <p id="p3">This is p3</p>
+    </div>
+    <button type="button" id="esvaziar">Empty Box</button>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#p1').text('<strong>This is p1</strong>');
+            $('#p2').html('<strong>This is p2</strong>');
+            $('#p3').attr('novo-atributo', 123);
+        });
+
+        $('#esvaziar').on('click', function(){
+            $('#caixa').empty();
+        });
+    </script>
+</body>
+</html>
