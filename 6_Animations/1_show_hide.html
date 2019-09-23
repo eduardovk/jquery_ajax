@@ -1,0 +1,59 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+            background-color: #8dd;
+            height: auto;
+            padding: 20px;
+            margin: 50px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span style="color:grey;">//Exemplo de toggle com parametro de duração da animação e função anonima na conclusão<br></span>
+        <pre>
+$('#caixa').on('click', 'button', function(){
+    $(this).closest('#caixa').find('.more').toggle(500, function(){
+        alert('Animação concluída.');
+    });
+});
+        </pre>
+
+    </p>
+
+    <div class="box " id="caixa">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum finibus erat sit amet euismod.
+            Maecenas suscipit venenatis felis cursus dapibus. Vivamus fringilla turpis ut semper volutpat.
+            Suspendisse sollicitudin consectetur urna, in pharetra erat lacinia id.
+            Sed tristique neque non orci ultricies, nec varius eros malesuada.
+        </p>
+        <p class="more" style="display:none;">
+            Phasellus hendrerit sem et leo interdum, sed cursus enim lacinia.
+            Sed at odio volutpat, ultrices nibh et, laoreet elit. Etiam viverra eget nulla tempor hendrerit.
+            Vestibulum eget rutrum tortor, eu blandit augue. Vivamus scelerisque ligula vel tortor maximus pretium.
+        </p>
+        <button type="button" id="botao">Show more</button>
+
+    </div>
+
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#caixa').on('click', 'button', function(){
+                $(this).closest('#caixa').find('.more').toggle(500, function(){
+                    alert('Animação concluída.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
