@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+        	background-color: #8dd;
+        	height: 100px;
+        	padding: 20px;
+        	margin: 50px 20px;
+        }
+
+        #resultado{
+        	vertical-align: center;
+        	line-height: 100px;
+        	text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span style="color:grey;">//Captando change de select e exibindo opção selecionada
+            <pre>
+$('#caixa').on('change','select',function(){
+    var selected = $(this).find('option:selected');
+    var valor = selected.data('valor');
+    if(valor){
+        $('#resultado').html(selected.val() + ' ' + valor);
+    }
+});
+            </pre>
+        </span>
+
+    </p>
+
+    <div class="box " id="caixa">
+        <select id="local">
+            <option value="">Pick your destination</option>
+            <option value="santiago" data-valor="100">Santiago</option>
+            <option value="madrid" data-valor="180">Madrid</option>
+            <option value="yakarta" data-valor="300">Yakarta</option>
+            <option value="istambul" data-valor="150">Istambul</option>
+            <option value="tokyo" data-valor="200">Tokyo</option>
+        </select>
+    </div>
+
+    <div class="box " id="resultado">
+        AAAAAAA
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#caixa').on('change','select',function(){
+                var selected = $(this).find('option:selected');
+                var valor = selected.data('valor');
+                if(valor){
+                    $('#resultado').html(selected.val() + ' ' + valor);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
