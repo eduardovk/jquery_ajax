@@ -1,0 +1,86 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="1_append_prepend.css">
+</head>
+<body>
+
+    <p>
+        <span style="color:white;">//Utilizando remove() para remover itens<br>
+            //o codigo abaixo funciona apenas para itens que já estavam presentes no carregamento da pagina</span>
+            <pre>
+$('#places-container .remove').on('click', function(){
+    $(this).parent().remove();
+});
+            </pre>
+            <span style="color:white;">
+            //Para o funcionamento correto, ao invés deste código devemos utilizar o código abaixo (utilizando delegation) <br>
+            //para que os itens adicionados posteriormente possam ser removidos também</span>
+        </span>
+        <pre>
+$('#places-container').on('click', '.remove', function(){
+    $(this).parent().remove();
+});
+        </pre>
+    </p>
+
+    <div id="add-container">
+        <input type="text" />
+        <button class="append">Append</button>
+        <button class="prepend">Prepend</button>
+    </div>
+
+    <div id="places-container">
+        <div class="item">
+            <div class="remove">X</div>
+            Paris
+        </div>
+        <div class="item">
+            <div class="remove">X</div>
+            Brisbane
+        </div>
+        <div class="item">
+            <div class="remove">X</div>
+            Lima
+        </div>
+        <div class="item">
+            <div class="remove">X</div>
+            Nairobi
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#add-container').on('click','button',function(){
+                var texto = $('#add-container input').val();
+                var html = `<div class="item">
+                    <div class="remove">X</div>
+                    `+texto+`
+                </div>`;
+                if($(this).attr('class') == 'append') {
+                    //Equivale a $(html).appendTo('#places-container');
+                    $('#places-container').append(html);
+
+                }else{
+                    //Equivale a $(html).prependTo('#places-container');
+                    $('#places-container').prepend(html);
+                }
+            });
+
+            // $('#places-container .remove').on('click', function(){
+            //     $(this).parent().remove();
+            // });
+
+            $('#places-container').on('click', '.remove', function(){
+                $(this).parent().remove();
+            });
+
+        });
+    </script>
+</body>
+</html>
