@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .creature {
+            margin: 20px;
+            background-color: #FFE1FF;
+            border: 1px solid #8B7B8B;
+        }
+
+        .terrain {
+            margin: 20px;
+            background-color: green;
+            border: 1px solid #8B7B8B;
+        }
+
+        .borda{
+            border: 2px solid red;
+        }
+
+        .borda-azul{
+            border: 2px solid blue;
+        }
+
+        .fundo-amarelo{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <p><span style="color:grey;">//Adicionando borda vermelha ao item Cats atraves de first() e last()</span>
+        <pre>
+var result = $('#animals').children().first().children('.creature').last();
+result.addClass('borda');
+        </pre>
+    </p>
+
+    <p><span style="color:grey;">//Adicionando borda azul ao item Snake atraves de prev()</span>
+        <pre>
+result = $('#animals').children().last().children().last().prev().prev();
+result.addClass('borda-azul');
+        </pre>
+    </p>
+
+    <p><span style="color:grey;">//Adicionando fundo amarelo ao item Lizard atraves de next()</span>
+        <pre>
+result.next().addClass('fundo-amarelo');
+        </pre>
+    </p>
+
+    <div id="animals" class="creature">Animals
+        <div class="creature">Mammals
+            <div class="creature">Dogs</div>
+            <div class="creature">Cats</div>
+            <div class="terrain">Forest</div>
+            <div class="terrain">Prairie</div>
+        </div>
+        <div class="creature">Reptiles
+            <div class="creature">Snake</div>
+            <div class="creature">Lizard</div>
+            <div class="terrain">Jungle</div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var result = $('#animals').children().first().children('.creature').last();
+            result.addClass('borda');
+            result = $('#animals').children().last().children().last().prev().prev();
+            result.addClass('borda-azul');
+            result.next().addClass('fundo-amarelo');
+        });
+    </script>
+
+</body>
+</html>
