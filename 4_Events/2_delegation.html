@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 150px;
+            height: 150px;
+            color: white;
+            text-align: center;
+            background-color: blue;
+        }
+
+        .vermelho{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span style="color:grey;">//Delegando o evento click ao elemento filho button de classe switch<br>
+            //O click só irá detectar quando pressionado o botao, e o $(this) irá apontar para o botão em si
+            <pre>
+$('#caixa').on('click', 'button.switch', function(){
+    $(this).parent().toggleClass('vermelho');
+} );
+            </pre>
+        </span>
+
+    </p>
+
+    <div class="box " id="caixa">
+        <button class="switch">Click me!</button>
+    </div>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#caixa').on('click', 'button.switch', function(){
+                $(this).parent().toggleClass('vermelho');
+            } );
+        });
+    </script>
+</body>
+</html>
