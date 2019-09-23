@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 500px;
+            background-color: #000;
+            height: 120px;
+            padding: 20px;
+            margin: 50px 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span style="color:grey;">//Animando propriedades CSS utilizando função animate()<br></span>
+    </p>
+
+    <div class="box " id="caixa1">
+        CLICK ME
+        <pre>
+            $('#caixa1').on('click', function(){
+                $(this).animate({
+                    opacity: "-=0.3"
+                }, 250, function(){alert('Opacidade diminuída')});
+            });
+        </pre>
+    </div>
+    <div class="box " id="caixa2">
+        CLICK ME
+        <pre>
+            $('#caixa2').on('click', function(){
+                $(this).animate({
+                    marginLeft: 100,
+                    width: 40
+                }, 250, function(){alert('Animação concluída.')});
+            });
+        </pre>
+    </div>
+    <div class="box " id="caixa3">
+        CLICK ME
+        <pre>
+            $('#caixa3').on('click', function(){
+                $(this).animate({
+                    marginTop: "+=30",
+                    width: "+=30"
+                }, 250);
+            });
+        </pre>
+    </div>
+
+
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#caixa1').on('click', function(){
+                $(this).animate({
+                    opacity: "-=0.3"
+                }, 250, function(){alert('Opacidade diminuída')});
+            });
+            $('#caixa2').on('click', function(){
+                $(this).animate({
+                    marginLeft: 100,
+                    width: 300
+                }, 250, function(){alert('Animação concluída.')});
+            });
+            $('#caixa3').on('click', function(){
+                $(this).animate({
+                    marginTop: "+=30",
+                    width: "+=30"
+                }, 250);
+            });
+        });
+    </script>
+</body>
+</html>
