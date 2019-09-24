@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <p>
+        <span style="color:grey;">//Mostrando campos escondidos com evento change<br>
+            //Forçando evento change no carregamento da pagina com trigger() para verificar campos extras
+            <pre>
+$('#check_pets').on('change', function(){
+    if($(this).is(':checked')){
+        $('#pets').show();
+    }else{
+        $('#pets').hide();
+    }
+});
+
+$('#check_pets').trigger('change');
+            </pre>
+        </span>
+
+        Pets? <input type="checkbox" id="check_pets"><br>
+        <select id="pets" style="display: none;">
+            <option>Cat</option>
+            <option>Dog</option>
+            <option>Hamster</option>
+        </select>
+    </p>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#check_pets').on('change', function(){
+                if($(this).is(':checked')){
+                    $('#pets').show();
+                }else{
+                    $('#pets').hide();
+                }
+            });
+            $('#check_pets').trigger('change');
+        });
+    </script>
+</body>
+</html>
