@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <p>
+        <span style="color:grey;">//Simulando envio de formulario via AJAX <br>
+            //Utilizando preventDefault para prevenir submit tradicional
+            //e usando serialize para serializar dados do formulario
+            <pre>
+$('#formulario').on('submit', function(event){
+    event.preventDefault();
+
+    $.ajax($(this).attr('action'), {
+        type: 'post',
+        data: $('#formulario').serialize()
+    }).done(function(response){
+        $('#resultado').text(response.mensagem);
+    });
+});
+            </pre>
+        </span>
+    </p>
+
+    <div id="resultado">
+    </div><br>
+
+    <form action="2_submit.json" method="post" id="formulario">
+        Nome: <input type="text" id="nome" value=""><br>
+        Sobrenome: <input type="text" id="sobrenome" value=""><br>
+        Idade: <input type="number" id="idade" value=""><br>
+        Pets? <input type="checkbox" id="check_pets"><br>
+        <select id="pets" style="display: none;">
+            <option>Cat</option>
+            <option>Dog</option>
+            <option>Hamster</option>
+        </select>
+        <br><button type="submit" >Enviar</button>
+    </form>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#check_pets').on('change', function(){
+                if($(this).is(':checked')){
+                    $('#pets').show();
+                }else{
+                    $('#pets').hide();
+                }
+            });
+            $('#check_pets').trigger('change');
+
+            $('#formulario').on('submit', function(event){
+                event.preventDefault();
+
+                $.ajax($(this).attr('action'), {
+                    type: 'post',
+                    data: $('#formulario').serialize()
+                }).done(function(response){
+                    $('#resultado').text(response.mensagem);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
