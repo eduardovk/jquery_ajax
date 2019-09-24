@@ -12,21 +12,30 @@
     </header>
 
     <p>
-        <span style="color:white;">//Simulando captura de arquivo não encontrado<br>
-            //com método fail()
+        <span style="color:white;">//Request de arquivo JSON<br>
+            //preenchendo body com itens do arquivo JSON
             <pre>
+$.ajax('4_destinations.json', {
+    dataType: 'json',
+    contentType: 'application/json',
+    cache: false
+}).done(function(response){
+    var html;
+    $.each(response, function(index, element){
+        html = '&lt;div class="item-box" data-id="'+element.id+'"&gt;';
+            html += '&lt;div class="item-title"&gt;'+element.name+'&lt;/div&gt;';
+            html += '&lt;p&gt;'+element.description+'&lt;/p&gt;';
+            html += '&lt;div class="item-price"&gt;'+element.price+'&lt;/div&gt;';
+            html += '&lt;button&gt;Add to cart&lt;/button&gt;';
+            html += '&lt;/div&gt;';
+
+            $('body').append(html);
+        });
+    });
             </pre>
         </span>
 
     </p>
-
-
-    <div class="item-box" data-id="">
-        <div class="item-title"></div>
-        <p></p>
-        <div class="item-price"></div>
-        <button>Add to cart</button>
-    </div>
 
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script>
