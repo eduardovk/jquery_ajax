@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="#" id="total">Total $0</a>
+    </header>
+
+    <p>
+        <span style="color:white;">//Simulando post de dados via AJAX<br>
+            <pre>
+var cart = 0;
+$('body').on('click', '.item-box button', function(event){
+    event.preventDefault();
+    var id = +$(this).closest('.item-box').data('id');
+
+    $.ajax('5_add_item.json',{
+        type: 'post',
+        data: 'json',
+        contentType: 'application/json'
+    }).done(function(response){
+        cart +=response.price;
+        $('#total').text('Total: R$ '+cart);
+    });
+});
+            </pre>
+        </span>
+
+    </p>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax('4_destinations.json', {
+                dataType: 'json',
+                contentType: 'application/json',
+                cache: false
+            }).done(function(response){
+                var html;
+                $.each(response, function(index, element){
+                    html = '<div class="item-box" data-id="'+element.id+'">';
+                        html += '<div class="item-title">'+element.name+'</div>';
+                        html += '<p>'+element.description+'</p>';
+                        html += '<div class="item-price">'+element.price+'</div>';
+                        html += '<button>Add to cart</button>';
+                        html += '</div>';
+
+                        $('body').append(html);
+                    });
+                });
+
+                var cart = 0;
+                $('body').on('click', '.item-box button', function(event){
+                    event.preventDefault();
+                    var id = +$(this).closest('.item-box').data('id');
+
+                    $.ajax('5_add_item.json',{
+                        type: 'post',
+                        data: 'json',
+                        contentType: 'application/json'
+                    }).done(function(response){
+                        cart +=response.price;
+                        $('#total').text('Total: R$ '+cart);
+                    });
+                });
+
+            });
+        </script>
+    </body>
+    </html>
